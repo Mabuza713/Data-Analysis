@@ -57,7 +57,7 @@ class ReturnToRisk:
         plt.grid(axis="both")
         plt.show()
 
-stocksName = ["AAPL", "SPY", "META",  "DOCU", "NVDA", "GME"]
+stocksName = ["PFE", "NIO"]
 
 result = ReturnToRisk(stocksName, start = "2020-06-07", end = "2024-06-07")
 result.PlottingData()

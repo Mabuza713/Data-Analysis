@@ -5,7 +5,7 @@ import numpy as np
 
 
 class MomentumStrat:
-    def __init__(self, stockName, start = "2020-01-01", end = "2024-06-09"):
+    def __init__(self, stockName, start = "2020-01-01", end = "2024-06-12"):
         self.stockName = stockName
         self.start = start
         self.end = end
@@ -41,13 +41,13 @@ class MomentumStrat:
         data["Entry"] = data.Signal.diff()
 
         # Plotting our data
-        plt.plot(data.iloc[-90:]["Close"], label = f"{self.stockName}")
-        plt.plot(data.iloc[-90:]["9 Days fast"], label = "9 days fast")
-        plt.plot(data.iloc[-90:]["21 Days slow"], label = "21 days slow")
+        plt.plot(data.iloc[-120:]["Close"], label = f"{self.stockName}")
+        plt.plot(data.iloc[-120:]["9 Days fast"], label = "9 days fast")
+        plt.plot(data.iloc[-120:]["21 Days slow"], label = "21 days slow")
 
         # Plotting an entry points
-        plt.plot(data[-90:].loc[data.Entry == 2].index, data[-90:]["9 Days fast"][data.Entry == 2], "^", color = "g", markersize = 12)
-        plt.plot(data[-90:].loc[data.Entry == -2].index, data[-90:]["21 Days slow"][data.Entry == -2], "v", color = "r", markersize = 12)
+        plt.plot(data[-120:].loc[data.Entry == 2].index, data[-120:]["9 Days fast"][data.Entry == 2], "^", color = "g", markersize = 12)
+        plt.plot(data[-120:].loc[data.Entry == -2].index, data[-120:]["21 Days slow"][data.Entry == -2], "v", color = "r", markersize = 12)
 
 
         plt.title("Momentum Strategy")
@@ -55,5 +55,10 @@ class MomentumStrat:
         plt.xlabel("Date")
         plt.legend(loc = 2)
         plt.show()
-result = MomentumStrat("AAPL")
+result = MomentumStrat("PFE")
 result.MomentumStrat()
+
+#EVE look out
+#MESA
+#T
+#AAPL
